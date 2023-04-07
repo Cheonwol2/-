@@ -1,0 +1,11 @@
+def find_first_channel(channels):
+    position_array = [i.position for i in channels]
+
+    for i in channels:
+        if i.position == min(position_array):
+            return i
+            
+async def on_member_remove(self, member):
+        msg = "<@{}>님이 안녕히가세요.".format(str(member.id))
+        await find_first_channel(member.guild.text_channels).send(msg)
+        return None
